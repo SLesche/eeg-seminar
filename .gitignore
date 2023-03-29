@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+data/
+data_coding_task/
+autocleaned/
+erp/
+icset/
+icweights/
+

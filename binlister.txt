@@ -1,0 +1,7 @@
+bin 1
+Stim Congruent
+.{1}
+
+bin 2
+Stim Incongruent
+.{2}
