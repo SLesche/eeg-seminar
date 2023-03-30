@@ -1,5 +1,6 @@
 % Setting paths
-PATH_MAIN =  'C:\Users\slesche\Documents\MATLAB\eeg-seminar\'; % Pfad in dem die Rohdaten liegen 
+%PATH_MAIN =  'C:\Users\slesche\Documents\MATLAB\eeg-seminar\'; % Pfad in dem die Rohdaten liegen 
+PATH_MAIN = 'C:/Users/Sven/Documents/Psychologie/Seminare/EEG/eeg-seminar/';
 PATH_ERP = fullfile(PATH_MAIN, 'erp/');
 cd(PATH_MAIN)%wir ändern das working directory in unseren main Ordner
 
@@ -15,6 +16,9 @@ eeglab
 % Grand Average
 erp_ga = pop_loaderp(strcat('erp/grand_average_flanker.erp'));
 
+% Return p3 latencies for this set
+ga_p3 = calc_p3_values(erp_ga);
+
 % time and value vector
 ga_times = erp_ga(1).times;
 ga_value_1 = erp_ga(1).bindata(11, :, 1);
@@ -22,8 +26,7 @@ erp_value_1 = ALLERP(1).bindata(11, :, 1);
 
 % Curve fitting
 % TODO: Save fitresult, GOF and plot
-ga_param = return_grand_average_param(ga_times, ga_value_1, 9)
-
+[ga_param, fit_ga, gof_ga] = return_grand_average_param(ga_times, ga_value_1, 9)
 
 % Now optimize for subject data
 subj_1_x = ALLERP(1).times;
