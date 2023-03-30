@@ -1,4 +1,5 @@
-function fit_str = get_fit_str(coeffs)
+function fit_str = get_fit_str(fitresult)
+    coeffs = coeffvalues(fitresult);
     n = length(coeffs)/3;
     fit_str = "";
     for i = 1:n
@@ -12,4 +13,5 @@ function fit_str = get_fit_str(coeffs)
             fit_str = fit_str + " + " + term_str;
         end
     end
+    fit_str;
 end
