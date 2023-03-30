@@ -3,7 +3,7 @@
         % Ein Fixationskreuz wird präsentiert, (S31/S32)
         % dann beginnt das ISI, (S41/42)
         % dann wird der Zielreiz präsentiert, (S51/52)
-        % darauf antwortet die Person, (S150/160, S250/260)
+        % darauf antwortet die Person, (S150/160, S250/255)
         % dann wird der Beginn des ITI markiert, (S91/92)
         % hierauf folgt wieder die Präsentation des Fixationskreuzes
         % (S31/32)
@@ -333,7 +333,7 @@ erp_ga = pop_loaderp('grand_average_flanker.erp');
 
 plot(erp_ga(1).times, erp_ga(1).bindata(11,:,1) )%define electrode and bin to plot 
 hold on
-plot(erp_ga(1).times, erp_ga(1).bindata(11,:,2) )%define electrode and bin to plot 
+plot(erp_ga(1).times, erp_ga(1).bindata(11,:,2), '--' )%define electrode and bin to plot 
 axis([-200 800 -5 9]) % Achsen entsprechend des Signals anpassen 
 set(gca, 'YDir','reverse') % Hier wird einmal die Achse gedreht -> Negativierung oben 
 
