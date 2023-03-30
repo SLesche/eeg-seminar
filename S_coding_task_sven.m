@@ -8,8 +8,15 @@
         % hierauf folgt wieder die Präsentation des Fixationskreuzes
         % (S31/32)
 % Aufgabe 2: siehe Skript
-% Aufgabe 3: preprocessing Statistiken
-    % Im mittel entfernte Kanäle: 
+% Aufgabe 3: preprocessing Statistiken (siehe Ende des Skripts)
+    % Im mittel entfernte Kanäle: 1.75
+    % entfernte IC: 4.1
+    % enfernte Daten: 35.29%
+    % N epochen: 110.65
+    % Bewertung: Mittlere Statistiken sehen alle passabel aus. Allerdings
+    % scheinen ein
+
+
 % preprocessing allgemeines Skript zur Aufbereitung von EEG Daten 
 
 clear all
@@ -32,6 +39,7 @@ PATH_ICWEIGHTS = [PATH_MAIN,  'icweights/'];
 PATH_ICSET = [PATH_MAIN,  'icset/'];
 
 preprostats= [];
+eeglab
 for i = 1 : nSubjects
     
     % Setting i to 1 in console
@@ -309,8 +317,6 @@ for i=1:nSubjects
     end
 end
 
-eeglab
-
 % plotting grand average
 [ERP ALLERP] = pop_loaderp( 'filename', {'flanker_1.erp', 'flanker_2.erp', 'flanker_3.erp', 'flanker_4.erp', 'flanker_5.erp', 'flanker_6.erp',...
  'flanker_7.erp', 'flanker_8.erp', 'flanker_9.erp', 'flanker_10.erp', 'flanker_11.erp', 'flanker_12.erp', 'flanker_13.erp', 'flanker_14.erp',...
@@ -340,11 +346,17 @@ set(gca,'TickDir','in');
 ax.XRuler.TickLabelGapOffset = -20;    
 Ylm=ylim;                          
 Xlm=xlim;  
-Xlb=0.90*Xlm(2);    
+Xlb=0.90*Xlm(2);
 Ylb=0.90*Ylm(1);
 xlabel('ms','Position',[Xlb 1]); 
 ylabel('µV','Position',[-100 Ylb]); 
 legend('Congruent','Incongruent', 'Location', 'southeast')
 box off
 hold off
+
+% Accessing preprostats for checking
+mean_removed_channels_eeg = mean(preprostats(:, 2));
+mean_removed_ic = mean(preprostats(:, 8));
+mean_removed_data_eeg = mean(preprostats(:, 4));
+mean_epoch_eeg = mean(preprostats(:, 6));
 

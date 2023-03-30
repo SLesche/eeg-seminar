@@ -1,0 +1,2 @@
+bin1_11	bin2_11	     ERPset
+     4.664	     4.365	grand_average_flanker
