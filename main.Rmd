@@ -100,21 +100,45 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed) # this adds random seed to
 knitr::opts_chunk$set(autodep = TRUE)
 knitr::dep_auto()
 ```
-
-<!-- Setup -->
-<!-- Maybe setup R libraries here -->
-
-<!-- Here we can incorporate child markdown-documents as the separate parts -->
 # Introduction
-_Post-error slowing_ (PES) describes the increase in response times following errors. Work on PES has mostly focused on describing the cognitive processes underlying this slowing. Here, effects of the _response stimulus interval_ seems to play a key role in deciding what processes underlie PES. PES has been replicated in many tasks and with a wide range of subjects. So far, there has been little agreement on the type of task used to most reliably estimate PES. Evidence points to large differences in the magnitude of and processes underlying PES depending on procedural factors such as the RSI and the presence or absence of feedback. Tasks used do not only differ in procedural factors such as RSI and feedback, but also require different cognitive processes when completing the task. Different processes required may lead to different effects of errors on those processes. This in turn can cause cognitive processes underlying PES to vary between tasks.
+Post-error slowing (PES) describes the increase in response time on trials following an error compared to trials following a correct response. PES has been observed in a variety of experimental settings and is often accompanied by a post-error change in accuracy (PEA). Some studies observed decreased accuracy following errors while others find accuracy improvements. This has lead researchers to investigate differences in cognitive processes underlying post-error effects.
 
-To date, little research has been dedicated towards studying the effects of errors themselves. _Error awareness_ for example seems to play a role in determining the magnitude of errors. With unaware errors leading to less PES. Tasks may differ in the amount of awareness participants have of their committed errors. This would also induce between task variability in PES.
+@damaso2020 have argued that different types of errors can lead to different types of post-error changes in behavior. They differentiate between _response speed_ and _evidence quality_ errors. 
 
-This proposal focuses on a recent development aiming to account for within-task variability in PES. Recently, a group of researchers proposed two different types of errors that lead to different changes in post-error behavior. In their work, @damaso2022 differentiated between two types of errors, _evidence quality_ and _response speed_ errors as a potential explanation for within-task variability @damaso2020. Evidence quality errors occur when participants are unsure of the correct response and default to guessing. Response speed errors on the other hand are due to participants responding too quickly. Had they waited for more evidence to accumulate, they would have made the correct choice. Response speed errors occur because participants responded with too little caution. This leads to faster response times in error trials. Evidence quality errors on the other hand are independent of caution, they occur due to low evidence accumulation rates. This leads to slower response times in error trials.
+Damaso et al. used median splits in RT to show that behavioral differences within-task exist between the two types. They observed increased PES for the faster bin of errors and post-error speeding for the bin containing mainly _evidence quality_ errors. Only measuring RT and accuracy changes provides a limited view of post-error effects and fails to capture differences in cognitive processes following the different types of errors. This RT approach is also highly susceptible to _regression to the mean_. We will aim to improve on the research design of @damaso2020 by adding 2 tasks each eliciting either _response speed_ or _evidence quality_ errors and using neurocognitive measures to measure post-error changes in cognitive processes. 
 
-@damaso2020 predicted that only response speed errors should lead to increases in response times post-error. They attribute this to the participants becoming _more_ cautious following a response-speed error. Evidence quality errors should have no effect on caution, leading to reduced PES, or even post-error speeding. 
+To elicit both _evidence quality_ and _response speed_ errors we will use a modified flanker task that has led to high error rates in previous studies [@mcgovern2017]. Participants have to decide whether the centrally presented letter is a "U" or a "V". This central letter is surrounded by flanking letters that either show the same letter (congruent) or the respective other letter (incongruent). This task elicits both _evidence quality and _response speed_ errors. We will determine the type of error via the RT of the error in a manner similar to @damaso2020.
 
-@damaso2020 found these behavioral differences in PES depending on the prevalent type of error. In conditions with a higher frequency of response speed errors, they observed traditional PES. In conditions with mostly evidence quality errors however, they observed 
+We will use a modified _Behavioral Adaptation Task_ @hedge2007 to elicit response speed errors. The stimuli "X" and "Y" are presented in a mostly alternating fashion. When the current stimulus is different from the previously presented stimulus, participants have to press the button corresponding to the stimulus. When the stimulus is repeated, participants should give no response at all. This leads to a large number of _response speed_ errors.
+
+To elicit mainly _evidence quality_ errors we will use a difficult two-choice color discrimination task [@buzzel2017]. A stimulus consistent of a smaller circle surrounded by a bigger circle is presented each trial. The participant has to decide whether the inner circle is of the same color as the outer ring. The true difference in colors in incongruent stimuli will be adapted to each participant to ensure error rates of 20%. Errors in this task are mainly due to participants being unsure of whether there is a true difference and thus compromise largely _evidence quality_ errors.
+
+Differences in post-error adjustments to cognitive processes will be studied in several measurements obtained in an electroencephalogram (EEG). This includes error-related components in event-related potentials (ERP), the _error-related negativity_ (ERN) and _error-positivity_ (Pe). We will also investigate the impact of errors on alpha power. 
+
+ERN is a fronto-central negative deflection in the response-locked ERP that is more negative following error responses. It peaks around 100ms after the response and is often associated with error monitoring or response conflict [@botvinnik2001].
+Pe on the other hand is a centro-parietal positive deflection around 200-400ms following the response. The functional interpretation of this component is less clear. It seems to be a later stage of error processing relevant for error awareness [@gregorio2018].
+Alpha waves are rhythmic oscillations between 8-13Hz reflecting low mental arousal [@niedermeyer2005]. @carp2009 observed reduced alpha power following errors, implying that changes in post-error behavior are influenced by increased cortical arousal.
+
+Of interest in this study are differences in post-error adjustments between conditions containing either mainly _response speed_ or _evidence quality_ errors. We will obtain EEG-measures and investigate post-error changes using ANOVA. We predict post-error changes in behavior of all types to be more pronounced following _response speed_ errors. Errors due to poor evidence quality should not induce large changes in cognitive processes, as the underlying cognitive processes were not at fault when committing the error.
+
+## Hypotheses
+H1: Post-error slowing is more pronounced in conditions containing mainly _response speed_ errors.
+H2: ERN is more negative in conditions containing mainly _response speed_ errors.
+H3: Pe is more positive in conditions containing mainly _response speed_ errors.
+H4: Alpha power decreases are more pronounced in conditions containing mainly _response speed_ errors.
+
+## EEG
+We will use 64 and blabla
+ERN will be measured
+Pe will be measured
+alpha will be measured
+
+## Analysis
+We will need at minimum N participants according to power analysis.
+
+## Limitations
+
+
 
 <!-- References -->
 \newpage

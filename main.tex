@@ -1,0 +1,269 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man,floatsintext]{apa7}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\usepackage{csquotes}
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+\raggedbottom
+
+\usepackage{hhline}
+
+\setlength{\parskip}{0pt}
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Examining effects of different error types},
+  pdfauthor={Sven Lesche1},
+  pdflang={en-EN},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Examining effects of different error types}
+\author{Sven Lesche\textsuperscript{1}}
+\date{}
+
+
+\shorttitle{Types of errors}
+
+\authornote{
+
+This is a research proposal completed for the seminar `FOV Elektrophysiologie'.
+
+The authors made the following contributions. Sven Lesche: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing.
+
+Correspondence concerning this article should be addressed to Sven Lesche, Im Neuenheimer Feld 695. E-mail: \href{mailto:sven.lesche@stud.uni-heidelberg.de}{\nolinkurl{sven.lesche@stud.uni-heidelberg.de}}
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} Ruprecht-Karls-University Heidelberg}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Post-error slowing (PES) describes the increase in response time on trials following an error compared to trials following a correct response. PES has been observed in a variety of experimental settings and is often accompanied by a post-error change in accuracy (PEA). Some studies observed decreased accuracy following errors while others find accuracy improvements. This has lead researchers to investigate differences in cognitive processes underlying post-error effects.
+
+(\protect\hyperlink{ref-damaso2020}{\textbf{damaso2020?}}) have argued that different types of errors can lead to different types of post-error changes in behavior. They differentiate between \emph{response speed} and \emph{evidence quality} errors.
+
+Damaso et al.~used median splits in RT to show that behavioral differences within-task exist between the two types. They observed increased PES for the faster bin of errors and post-error speeding for the bin containing mainly \emph{evidence quality} errors. Only measuring RT and accuracy changes provides a limited view of post-error effects and fails to capture differences in cognitive processes following the different types of errors. This RT approach is also highly susceptible to \emph{regression to the mean}. We will aim to improve on the research design of (\protect\hyperlink{ref-damaso2020}{\textbf{damaso2020?}}) by adding 2 tasks each eliciting either \emph{response speed} or \emph{evidence quality} errors and using neurocognitive measures to measure post-error changes in cognitive processes.
+
+To elicit both \emph{evidence quality} and \emph{response speed} errors we will use a modified flanker task that has led to high error rates in previous studies (\protect\hyperlink{ref-mcgovern2017}{\textbf{mcgovern2017?}}). Participants have to decide whether the centrally presented letter is a ``U'' or a ``V''. This central letter is surrounded by flanking letters that either show the same letter (congruent) or the respective other letter (incongruent). This task elicits both \_evidence quality and \emph{response speed} errors. We will determine the type of error via the RT of the error in a manner similar to (\protect\hyperlink{ref-damaso2020}{\textbf{damaso2020?}}).
+
+We will use a modified \emph{Behavioral Adaptation Task} (\protect\hyperlink{ref-hedge2007}{\textbf{hedge2007?}}) to elicit response speed errors. The stimuli ``X'' and ``Y'' are presented in a mostly alternating fashion. When the current stimulus is different from the previously presented stimulus, participants have to press the button corresponding to the stimulus. When the stimulus is repeated, participants should give no response at all. This leads to a large number of \emph{response speed} errors.
+
+To elicit mainly \emph{evidence quality} errors we will use a difficult two-choice color discrimination task (\protect\hyperlink{ref-buzzel2017}{\textbf{buzzel2017?}}). A stimulus consistent of a smaller circle surrounded by a bigger circle is presented each trial. The participant has to decide whether the inner circle is of the same color as the outer ring. The true difference in colors in incongruent stimuli will be adapted to each participant to ensure error rates of 20\%. Errors in this task are mainly due to participants being unsure of whether there is a true difference and thus compromise largely \emph{evidence quality} errors.
+
+Differences in post-error adjustments to cognitive processes will be studied in several measurements obtained in an electroencephalogram (EEG). This includes error-related components in event-related potentials (ERP), the \emph{error-related negativity} (ERN) and \emph{error-positivity} (Pe). We will also investigate the impact of errors on alpha power.
+
+ERN is a fronto-central negative deflection in the response-locked ERP that is more negative following error responses. It peaks around 100ms after the response and is often associated with error monitoring or response conflict (\protect\hyperlink{ref-botvinnik2001}{\textbf{botvinnik2001?}}).
+Pe on the other hand is a centro-parietal positive deflection around 200-400ms following the response. The functional interpretation of this component is less clear. It seems to be a later stage of error processing relevant for error awareness (\protect\hyperlink{ref-gregorio2018}{\textbf{gregorio2018?}}).
+Alpha waves are rhythmic oscillations between 8-13Hz reflecting low mental arousal (\protect\hyperlink{ref-niedermeyer2005}{\textbf{niedermeyer2005?}}). (\protect\hyperlink{ref-carp2009}{\textbf{carp2009?}}) observed reduced alpha power following errors, implying that changes in post-error behavior are influenced by increased cortical arousal.
+
+Of interest in this study are differences in post-error adjustments between conditions containing either mainly \emph{response speed} or \emph{evidence quality} errors. We will obtain EEG-measures and investigate post-error changes using ANOVA. We predict post-error changes in behavior of all types to be more pronounced following \emph{response speed} errors. Errors due to poor evidence quality should not induce large changes in cognitive processes, as the underlying cognitive processes were not at fault when committing the error.
+
+\hypertarget{hypotheses}{%
+\subsection{Hypotheses}\label{hypotheses}}
+
+H1: Post-error slowing is more pronounced in conditions containing mainly \emph{response speed} errors.
+H2: ERN is more negative in conditions containing mainly \emph{response speed} errors.
+H3: Pe is more positive in conditions containing mainly \emph{response speed} errors.
+H4: Alpha power decreases are more pronounced in conditions containing mainly \emph{response speed} errors.
+
+\hypertarget{eeg}{%
+\subsection{EEG}\label{eeg}}
+
+We will use 64 and blabla
+ERN will be measured
+Pe will be measured
+alpha will be measured
+
+\hypertarget{analysis}{%
+\subsection{Analysis}\label{analysis}}
+
+We will need at minimum N participants according to power analysis.
+
+\hypertarget{limitations}{%
+\subsection{Limitations}\label{limitations}}
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\end{CSLReferences}
+
+
+\end{document}
