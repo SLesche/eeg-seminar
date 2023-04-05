@@ -14,16 +14,31 @@
     % enfernte Daten: 35.29%
     % N epochen: 110.65
     % Bewertung: Mittlere Statistiken sehen alle passabel aus. Allerdings
-    % scheinen ein
+    % scheinen VPn 7, 9, und 13-15 >50% ihrer Datenpunkt entfernt bekommen
+    % haben. VP 14 behält nur 31 Epochen in ihrem Datensatz, was zu sehr
+    % verrauschten EKPs führen kann. Die Anzahl der entfernten Kanäle
+    % beträgt stets zwischen 0-3, dies kann ausreichend kompensiert werden.
+    % Bei VP 7 wurden allerdings 5 Kanäle entfernt, je nach Lage diese
+    % Kanäle kann dies problematisch sein.
+% Aufgabe 4:
+    % GA - siehe Skript
+    % Latenzen und Amplitude, siehe Skript oder grand_average_peak(lat).txt
+    % Basierend auf diesem Subset der VP scheint sich die Verarbeitung
+    % nicht zu unterscheiden. Die Latenzen und Amplituden sowie die
+    % Verläufe der beiden GA-bins (siehe Aufgabe 5) deuten nicht auf große
+    % Unterschiede hin
+% Aufgabe 5:
+    % siehe Skript (unten)
 
 
 % preprocessing allgemeines Skript zur Aufbereitung von EEG Daten 
 
 clear all
 
+[filepath, ~, ~] = fileparts(mfilename('fullpath'));
 nSubjects = 20;
-PATH_RAW_DATA = 'C:\Users\Sven\Documents\Psychologie\Seminare\EEG\eeg-seminar\data_coding_task\'; % Pfad in dem Ergebnisse gespeichert werden 
-PATH_MAIN =  'C:\Users\Sven\Documents\Psychologie\Seminare\EEG\eeg-seminar\'; % Pfad in dem die Rohdaten liegen 
+PATH_MAIN =  filepath; % Pfad in dem die Rohdaten liegen 
+PATH_RAW_DATA = [filepath, 'data_coding_task/']; % Pfad in dem Ergebnisse gespeichert werden 
 
 cd(PATH_MAIN)%wir ändern das working directory in unseren main Ordner
 
@@ -328,8 +343,7 @@ erp_ga = pop_gaverager(ALLERP , 'DQ_flag', 1, 'Erpsets', [1   2   3   4   5   6 
 erp_ga = pop_savemyerp(erp_ga, 'erpname', 'grand_average_flanker', 'filename',...
  'grand_average_flanker.erp', 'filepath', PATH_ERP, 'Warning', 'on');
 
-cd(PATH_ERP);
-erp_ga = pop_loaderp('grand_average_flanker.erp');
+erp_ga = pop_loaderp('erp/grand_average_flanker.erp');
 
 plot(erp_ga(1).times, erp_ga(1).bindata(11,:,1) )%define electrode and bin to plot 
 hold on
@@ -355,15 +369,10 @@ box off
 hold off
 
 % Get the peak latency and amplitude of the grand average
-[test l] = pop_geterpvalues( ...
-    erp_ga, [ 200 900], [1 2],  11 , ...
-    'Baseline', 'pre', 'Fracreplace', 'NaN', 'InterpFactor',  1, ...
-    'Measure', 'peaklatbl', 'Neighborhood',  5, ...
-    'PeakOnset',  1, 'Peakpolarity', 'positive', 'Peakreplace', 'absolute', ...
-    'Resolution',  3 ...
-    )
-
-j = calc_p3_values(erp_ga);
+p3_values = calc_p3_values(erp_ga);
+% Rows are bins, first column is latency, second is amplitude
+% Bin1: Latency = 420ms, Amplitude = 4.6637mV
+% Bin2: Latency = 424ms, Amplitude = 4.3653mV
 
 % Accessing preprostats for checking
 mean_removed_channels_eeg = mean(preprostats(:, 2));

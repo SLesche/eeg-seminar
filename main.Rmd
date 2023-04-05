@@ -1,5 +1,5 @@
 ---
-title             : "Examining effects of different error types"
+title             : "Are all errors created equal?"
 shorttitle        : "Types of errors"
 
 author: 
@@ -47,7 +47,7 @@ authornote: |
 # keywords          : "keyword, more keyword, crazy keyword"
 # wordcount         : "X"
 
-# bibliography      : ["r-references.bib"] # put your ref files here
+bibliography      : ["lib.bib"] # put your ref files here
 
 floatsintext      : yes # for pics in text
 linenumbers       : no
@@ -101,44 +101,56 @@ knitr::opts_chunk$set(autodep = TRUE)
 knitr::dep_auto()
 ```
 # Introduction
-Post-error slowing (PES) describes the increase in response time on trials following an error compared to trials following a correct response. PES has been observed in a variety of experimental settings and is often accompanied by a post-error change in accuracy (PEA). Some studies observed decreased accuracy following errors while others find accuracy improvements. This has lead researchers to investigate differences in cognitive processes underlying post-error effects.
+Post-error slowing (PES) describes the increase in response time (RT) on trials following an error compared to trials following a correct response. PES has been observed in a variety of experimental settings and is often accompanied by a post-error change in accuracy (PEA). Some studies observed decreased accuracy following errors while others find accuracy improvements. This has lead researchers to investigate differences in cognitive processes underlying post-error effects.
 
 @damaso2020 have argued that different types of errors can lead to different types of post-error changes in behavior. They differentiate between _response speed_ and _evidence quality_ errors. 
 
-Damaso et al. used median splits in RT to show that behavioral differences within-task exist between the two types. They observed increased PES for the faster bin of errors and post-error speeding for the bin containing mainly _evidence quality_ errors. Only measuring RT and accuracy changes provides a limited view of post-error effects and fails to capture differences in cognitive processes following the different types of errors. This RT approach is also highly susceptible to _regression to the mean_. We will aim to improve on the research design of @damaso2020 by adding 2 tasks each eliciting either _response speed_ or _evidence quality_ errors and using neurocognitive measures to measure post-error changes in cognitive processes. 
+Damaso et al. used median splits in RT to show that behavioral differences within-task exist between the two types. They observed increased PES for the faster bin of errors and post-error speeding for the bin containing mainly _evidence quality_ errors. Only measuring RT and accuracy changes provides a limited view of post-error effects and fails to capture differences in cognitive processes following the different types of errors. This RT approach is also highly susceptible to _regression to the mean_. We will aim to improve on the research design of @damaso2020 by adding two tasks each eliciting either _response speed_ or _evidence quality_ errors and using neurocognitive measures to measure post-error changes in cognitive processes. 
 
-To elicit both _evidence quality_ and _response speed_ errors we will use a modified flanker task that has led to high error rates in previous studies [@mcgovern2017]. Participants have to decide whether the centrally presented letter is a "U" or a "V". This central letter is surrounded by flanking letters that either show the same letter (congruent) or the respective other letter (incongruent). This task elicits both _evidence quality and _response speed_ errors. We will determine the type of error via the RT of the error in a manner similar to @damaso2020.
+To elicit both _evidence quality_ and _response speed_ errors we will use a modified flanker task that has led to high error rates in previous studies [@perrone2017influence]. Participants have to decide whether the centrally presented letter is a "U" or a "V". This central letter is surrounded by flanking letters that either show the same letter (congruent) or the respective other letter (incongruent). This task elicits both _evidence quality_ and _response speed_ errors. We will determine the type of error via the RT of the error in a manner similar to @damaso2020.
 
-We will use a modified _Behavioral Adaptation Task_ @hedge2007 to elicit response speed errors. The stimuli "X" and "Y" are presented in a mostly alternating fashion. When the current stimulus is different from the previously presented stimulus, participants have to press the button corresponding to the stimulus. When the stimulus is repeated, participants should give no response at all. This leads to a large number of _response speed_ errors.
+We will use a modified _Behavioral Adaptation Task_ [@hester2007post] to elicit response speed errors. The stimuli "X" and "Y" are presented in a mostly alternating fashion. When the current stimulus is different from the previously presented stimulus, participants have to press the button corresponding to the stimulus. When the stimulus is repeated, participants should give no response at all. This leads to a large number of _response speed_ errors.
 
-To elicit mainly _evidence quality_ errors we will use a difficult two-choice color discrimination task [@buzzel2017]. A stimulus consistent of a smaller circle surrounded by a bigger circle is presented each trial. The participant has to decide whether the inner circle is of the same color as the outer ring. The true difference in colors in incongruent stimuli will be adapted to each participant to ensure error rates of 20%. Errors in this task are mainly due to participants being unsure of whether there is a true difference and thus compromise largely _evidence quality_ errors.
+To elicit mainly _evidence quality_ errors we will use a difficult two-choice color discrimination task [@buzzell2017error]. A stimulus consistent of a smaller circle surrounded by a bigger circle is presented each trial. The participant has to decide whether the inner circle is of the same color as the outer ring. The true difference in colors in incongruent stimuli will be adapted to each participant to ensure error rates of 20%. Errors in this task are mainly due to participants being unsure of whether there is a true difference and thus compromise largely _evidence quality_ errors.
 
-Differences in post-error adjustments to cognitive processes will be studied in several measurements obtained in an electroencephalogram (EEG). This includes error-related components in event-related potentials (ERP), the _error-related negativity_ (ERN) and _error-positivity_ (Pe). We will also investigate the impact of errors on alpha power. 
+Differences in post-error adjustments to cognitive processes will be studied in several measurements obtained in an electroencephalogram (EEG). This includes error-related components in event-related potentials (ERP), the _error-related negativity_ (ERN) and _error-positivity_ (Pe). 
+<!-- We will also investigate the impact of errors on alpha power.  -->
 
-ERN is a fronto-central negative deflection in the response-locked ERP that is more negative following error responses. It peaks around 100ms after the response and is often associated with error monitoring or response conflict [@botvinnik2001].
-Pe on the other hand is a centro-parietal positive deflection around 200-400ms following the response. The functional interpretation of this component is less clear. It seems to be a later stage of error processing relevant for error awareness [@gregorio2018].
-Alpha waves are rhythmic oscillations between 8-13Hz reflecting low mental arousal [@niedermeyer2005]. @carp2009 observed reduced alpha power following errors, implying that changes in post-error behavior are influenced by increased cortical arousal.
+ERN is a fronto-central negative deflection in the response-locked ERP that is more negative following error responses. It peaks around 100 ms after the response and is often associated with error monitoring or response conflict [@botvinick2001conflict].
+Pe on the other hand is a centro-parietal positive deflection around $200 - 400 ms$ following the response. The functional interpretation of this component is less clear. It seems to be a later stage of error processing relevant for error awareness [@di2018errors].
+<!-- Alpha waves are rhythmic oscillations between 8-13Hz reflecting low mental arousal [@niedermeyer2005]. @carp2009 observed reduced alpha power following errors, implying that changes in post-error behavior are influenced by increased cortical arousal. -->
 
-Of interest in this study are differences in post-error adjustments between conditions containing either mainly _response speed_ or _evidence quality_ errors. We will obtain EEG-measures and investigate post-error changes using ANOVA. We predict post-error changes in behavior of all types to be more pronounced following _response speed_ errors. Errors due to poor evidence quality should not induce large changes in cognitive processes, as the underlying cognitive processes were not at fault when committing the error.
+Of interest in this study are differences in post-error adjustments between conditions containing either mainly _response speed_ or _evidence quality_ errors. We will obtain EEG measures and investigate post-error changes using ANOVA. We predict post-error changes in behavior of all types to be more pronounced following _response speed_ errors. Errors due to poor evidence quality should not induce large changes in cognitive processes, as the underlying cognitive processes were not at fault when committing the error.
 
 ## Hypotheses
 H1: Post-error slowing is more pronounced in conditions containing mainly _response speed_ errors.
-H2: ERN is more negative in conditions containing mainly _response speed_ errors.
-H3: Pe is more positive in conditions containing mainly _response speed_ errors.
-H4: Alpha power decreases are more pronounced in conditions containing mainly _response speed_ errors.
 
-## EEG
-We will use 64 and blabla
-ERN will be measured
-Pe will be measured
-alpha will be measured
+H2: ERN is more negative in conditions containing mainly _response speed_ errors.
+
+H3: Pe is more positive in conditions containing mainly _response speed_ errors.
+
+## Design
+### Participants
+To detect a medium sized difference ($d > 0.50$) between post-error behavior depending on error type (evidence quality vs. response speed) in a t-test for dependent measures with $\alpha = 0.05$ and $\beta = 0.80$ we require a minimum of 27 participants [@faul2009statistical]. To account for potential removal of participants due to bad data quality, a minimum of 30 participants should be collected.
+
+### EEG
+As we will not conduct any spatial analysis and are mainly looking at ERPs, the quality and placement system of the electrodes does not need to be ideal. An example setup is given here, a lower number of electrodes or a different cap-style will not diminish the results obtained.
+
+EEG will be recorded using 64 in-cap Ag/AgCl electrodes placed in the extended 10-20 system. Electrooculogram (EOG) measures will be taken bipolarly by two electrode placed above and below the left eye to correct for ocular artifacts. All impedances will be kept below 5 $k\Omega$. EEG signal will be recorded with a sampling rate of 1000 Hz (band-pass 0.1 Hz - 100 Hz) and referenced to an in-cap reference located between electrodes Cz and CPz and an in-cap ground just anterior to Fz. 
+
+Following data aquisition, we will apply a low-pass filter of 16 Hz and a high-pass filter of 0.1 Hz. The raw data will be down-sampled to 250 Hz. To remove artifacts we will conduct an ICA on the dataset down-sampled to 100 Hz and an additional high-pass filter of 1 Hz. Raw data will be cleaned by removing channels with unusually long flatlines, artifact-rates of line-noise. Channels removed will be interpolated following this procedure. Data will be re-referenced to the average across electrodes and epoched to 200ms prior to and 1000ms following all stimulus and response markers.
+
+Peak-amplitude of the response-locked ERN will be determined at the electrode Cz. Response-locked peak amplitude of Pe will be measured at the Pz.
 
 ## Analysis
-We will need at minimum N participants according to power analysis.
+The effect of error type on behavioral measures, ERN and Pe we be compared within the Flanker task and between the BAT and color discrimination task. We will define the trials surrounding the 25% fastest errors as belonging to the _response speed_ category and the trials surrounding the 75% slowest errors as belonging to the _evidence quality_ category in the flanker task. In the BAT, the 85% fastest errors will be termed _response speed_. The opposite is true for the color discrimination task, here the 85% slowest errors will be termed _evidence quality_. We will then obtain behavioral and electrophysiological measures for thos categories and use t-tests to investigate differences in dependent measures between the two error types.
 
 ## Limitations
+This study aims to falsify the concept of a unitary PES as a dependent measure often used in clinical research. We want to show that post-error adjustments differ depending on the type of error committed. 
 
+A possible limitation is the definition of errors used here. They fastest 25% of errors in the flanker task may not exclusively be _response speed_ errors. In order to combat this, we introduced two tasks that elicit mainly one of the error types. We will also pre-test the tasks and inquire about the reasons for error commission to ensure that our assumptions about the types of errors committed reflect reality.
 
+Comparison of measures between these two tasks introduces the task itself as a confound. Differences can not be uniquely attributed to the type of error. A further limitation haunting PES research is the number of trials. Even with approximately 600 trials in each task, some participants may commit fewer than 10 errors. Higher trial counts and extensive pre-testing will be required to find an appropriate amount of trials per task.
 
 <!-- References -->
 \newpage
