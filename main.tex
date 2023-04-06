@@ -253,14 +253,14 @@ As we will not conduct any spatial analysis and are mainly looking at ERPs, the 
 
 EEG will be recorded using 64 in-cap Ag/AgCl electrodes placed in the extended 10-20 system. Electrooculogram (EOG) measures will be taken bipolarly by two electrode placed above and below the left eye to correct for ocular artifacts. All impedances will be kept below 5 \(k\Omega\). EEG signal will be recorded with a sampling rate of 1000 Hz (band-pass 0.1 Hz - 100 Hz) and referenced to an in-cap reference located between electrodes Cz and CPz and an in-cap ground just anterior to Fz.
 
-Following data aquisition, we will apply a low-pass filter of 16 Hz and a high-pass filter of 0.1 Hz. The raw data will be down-sampled to 250 Hz. To remove artifacts we will conduct an ICA on the dataset down-sampled to 100 Hz and an additional high-pass filter of 1 Hz. Raw data will be cleaned by removing channels with unusually long flatlines, artifact-rates of line-noise. Channels removed will be interpolated following this procedure. Data will be re-referenced to the average across electrodes and epoched to 200ms prior to and 1000ms following all stimulus and response markers.
+Following data aquisition, we will apply a low-pass filter of 16 Hz and a high-pass filter of 0.1 Hz. The raw data will be down-sampled to 250 Hz. To remove artifacts we will conduct an ICA on the dataset down-sampled to 100 Hz and passed through an additional high-pass filter of 1 Hz. Raw data will be cleaned by removing channels with unusually long flatlines, artifact-rates or line-noise. Channels removed will be interpolated following this procedure. Data will be re-referenced to the average across electrodes and epoched to 200ms prior to and 1000ms following all stimulus and response markers.
 
 Peak-amplitude of the response-locked ERN will be determined at the electrode Cz. Response-locked peak amplitude of Pe will be measured at the Pz.
 
 \hypertarget{analysis}{%
 \subsection{Analysis}\label{analysis}}
 
-The effect of error type on behavioral measures, ERN and Pe we be compared within the Flanker task and between the BAT and color discrimination task. We will define the trials surrounding the 25\% fastest errors as belonging to the \emph{response speed} category and the trials surrounding the 75\% slowest errors as belonging to the \emph{evidence quality} category in the flanker task. In the BAT, the 85\% fastest errors will be termed \emph{response speed}. The opposite is true for the color discrimination task, here the 85\% slowest errors will be termed \emph{evidence quality}. We will then obtain behavioral and electrophysiological measures for thos categories and use t-tests to investigate differences in dependent measures between the two error types.
+The effect of error type on behavioral measures, ERN and Pe we be compared within the Flanker task and between the BAT and color discrimination task. We will define the trials surrounding the 25\% fastest errors as belonging to the \emph{response speed} category and the trials surrounding the 75\% slowest errors as belonging to the \emph{evidence quality} category in the flanker task. In the BAT, the 85\% fastest errors will be termed \emph{response speed}. The opposite is true for the color discrimination task, here the 85\% slowest errors will be termed \emph{evidence quality}. We will then obtain behavioral and electrophysiological measures for those categories and use t-tests to investigate differences in dependent measures between the two error types.
 
 \hypertarget{limitations}{%
 \subsection{Limitations}\label{limitations}}
@@ -269,7 +269,7 @@ This study aims to falsify the concept of a unitary PES as a dependent measure o
 
 A possible limitation is the definition of errors used here. They fastest 25\% of errors in the flanker task may not exclusively be \emph{response speed} errors. In order to combat this, we introduced two tasks that elicit mainly one of the error types. We will also pre-test the tasks and inquire about the reasons for error commission to ensure that our assumptions about the types of errors committed reflect reality.
 
-Comparison of measures between these two tasks introduces the task itself as a confound. Differences can not be uniquely attributed to the type of error. A further limitation haunting PES research is the number of trials. Even with approximately 600 trials in each task, some participants may commit fewer than 10 errors. Higher trial counts and extensive pre-testing will be required to find an appropriate amount of trials per task.
+Comparison of measures between these two tasks introduces the task itself as a confound. Differences can not be uniquely attributed to the type of error. A further limitation haunting PES research is the number of trials. Even with approximately 600 trials in each task, some participants may commit fewer than 10 errors. Higher trial counts and extensive pre-testing will be required to find an appropriate amount of trials per task. This is especially relevant when aiming to investigate ERP components on an individual level. Luck (\protect\hyperlink{ref-luck2005ten}{2005}) recommends a minimum of 30 trials even for large components. This may prove to be an issue here.
 
 \newpage
 
@@ -295,6 +295,9 @@ Faul, F., Erdfelder, E., Buchner, A., \& Lang, A.-G. (2009). Statistical power a
 
 \leavevmode\vadjust pre{\hypertarget{ref-hester2007post}{}}%
 Hester, R., Simoes-Franklin, C., \& Garavan, H. (2007). Post-error behavior in active cocaine users: Poor awareness of errors in the presence of intact performance adjustments. \emph{Neuropsychopharmacology}, \emph{32}(9), 1974--1984.
+
+\leavevmode\vadjust pre{\hypertarget{ref-luck2005ten}{}}%
+Luck, S. J. (2005). Ten simple rules for designing and interpreting ERP experiments. \emph{Event-Related Potentials: A Methods Handbook}, \emph{4}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-perrone2017influence}{}}%
 Perrone-McGovern, K., Simon-Dack, S., Esche, A., Thomas, C., Beduna, K., Rider, K., Spurling, A., \& Matsen, J. (2017). The influence of emotional intelligence and perfectionism on error-related negativity: An event related potential study. \emph{Personality and Individual Differences}, \emph{111}, 65--70.
