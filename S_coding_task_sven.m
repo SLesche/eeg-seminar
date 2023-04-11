@@ -369,7 +369,7 @@ box off
 hold off
 
 % Get the peak latency and amplitude of the grand average
-p3_values = calc_p3_values(erp_ga);
+p3_values = calc_p3_values(erp_ga); % Custom function
 % Rows are bins, first column is latency, second is amplitude
 % Bin1: Latency = 420ms, Amplitude = 4.6637mV
 % Bin2: Latency = 424ms, Amplitude = 4.3653mV

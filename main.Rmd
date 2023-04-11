@@ -84,7 +84,7 @@ header-includes:
 
 csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 documentclass     : "apa7"
-output            : papaja::apa6_pdf
+output            : papaja::apa6_word
 ---
 ```{r setup, include = FALSE}
 # Working directory
@@ -100,7 +100,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed) # this adds random seed to
 knitr::opts_chunk$set(autodep = TRUE)
 knitr::dep_auto()
 ```
-# Introduction
+## Introduction
 Post-error slowing (PES) describes the increase in response time (RT) on trials following an error compared to trials following a correct response. PES has been observed in a variety of experimental settings and is often accompanied by a post-error change in accuracy (PEA). Some studies observed decreased accuracy following errors while others find accuracy improvements. This has lead researchers to investigate differences in cognitive processes underlying post-error effects.
 
 @damaso2020 have argued that different types of errors can lead to different types of post-error changes in behavior. They differentiate between _response speed_ and _evidence quality_ errors. 
