@@ -37,8 +37,8 @@ clear all
 
 [filepath, ~, ~] = fileparts(mfilename('fullpath'));
 nSubjects = 20;
-PATH_MAIN =  filepath; % Pfad in dem die Rohdaten liegen 
-PATH_RAW_DATA = [filepath, 'data_coding_task/']; % Pfad in dem Ergebnisse gespeichert werden 
+PATH_MAIN =  strcat(filepath, '/'); % Pfad in dem die Rohdaten liegen 
+PATH_RAW_DATA = [PATH_MAIN, 'data_coding_task/']; % Pfad in dem Ergebnisse gespeichert werden 
 
 cd(PATH_MAIN)%wir ändern das working directory in unseren main Ordner
 
