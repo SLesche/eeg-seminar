@@ -10,7 +10,7 @@
 % Aufgabe 2: siehe Skript
 % Aufgabe 3: preprocessing Statistiken (siehe Ende des Skripts)
     % Im mittel entfernte Kanäle: 1.75
-    % entfernte IC: 4.1
+    % entfernte IC: 3.8
     % enfernte Daten: 35.29%
     % N epochen: 110.65
     % Bewertung: Mittlere Statistiken sehen alle passabel aus. Allerdings
